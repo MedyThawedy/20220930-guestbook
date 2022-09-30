@@ -1,0 +1,22 @@
+body>form>div:nth-child(3)>textarea {
+    height: 65px;
+}
+
+.clsEntries>div:nth-child(2) div {
+    display: flex;
+    gap: 5px;
+}
+
+.clsName {
+    font-weight: bold;
+}
+
+.clsMail {
+    color: lightseagreen;
+}
+
+.clsEntry {
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    width: 250px;
+}

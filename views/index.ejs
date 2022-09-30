@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wichtige Personen</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body class="clsBody">
+    <h1>Guestbook</h1>
+    <p>Write an entry in our guest book</p>
+    <form action="/add" method="POST">
+        <div>
+            <p>Name</p>
+            <input type="text" name="username" id="">
+        </div>
+        <div>
+            <p for="">Email Adress</p>
+            <input type="email" name="useremail" id="">
+        </div>
+        <div>
+            <p for="">Text</p>
+            <textarea type="text" name="usertext" id=""></textarea>
+        </div>
+        <div>
+            <p class="clsPlatzHalter"></p><input type="submit" value="Send">
+        </div>
+    </form>
+    <% if(error) { %>
+        <p class="error">An Error happenened please try again or contact us!</p>
+        <%}%>
+            <%- include('./partials/entries', {guestbookentries}) %>
+</body>
+
+</html>

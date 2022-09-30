@@ -1,0 +1,30 @@
+<% if (guestbookentries.length> 0) { %>
+    <h2>Guestbook Entries</h2>
+    <% guestbookentries.forEach(( guestbookentries )=> { %>
+        <div class="clsEntries">
+            <div class="clsEntriesPlaceHolder"></div>
+            <div class="clsEntry">
+                <div>
+                    <p class="clsName">
+                        <%= guestbookentries.name %>
+                    </p>
+                    <p> </p>
+                    <p class="clsMail">
+                        <%= guestbookentries.email %>
+                    </p>
+                    <p> wrote : </p>
+                </div>
+
+                <p>
+                    <%= guestbookentries.text %>
+                </p>
+            </div>
+
+        </div>
+
+        <%})%>
+
+
+            <% } else {%>
+                <p>An error happenend! Please try again</p>
+                <%}%>
