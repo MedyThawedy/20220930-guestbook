@@ -33,18 +33,32 @@ app.post('/add',
             text: req.body.usertext
         })
 
-        //https://stackoverflow.com/questions/14177087/replace-a-string-in-a-file-with-nodejs
 
         fs.readFile('./data.js', 'utf8', function (err, data) {
             if (err) {
                 return console.log(err);
             }
-            var result = data.replace(']', `,{name: "${req.body.username}",email: "${req.body.useremail}",text: "${req.body.usertext}"}]`);
+            var result = data.replace(']', `,\n{name: "${req.body.username}",email: "${req.body.useremail}",text: "${req.body.usertext}"}\n]`);
 
             fs.writeFile('./data.js', result, 'utf8', function (err) {
                 if (err) return console.log(err);
             });
+
+            fs.writeFile('./data.json', result, 'utf8', function (err) {
+                if (err) return console.log(err);
+            });
+
         });
+
+        fs.copyFile('./data.js', './data.json', (err) => {
+            if (err) {
+                console.log('Error Occurred:', err);
+            } else {
+                console.log('File Copied Successfully!')
+            }
+        });
+
+
 
         res.render('index', { guestbookentries, error: null })
     })
